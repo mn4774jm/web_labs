@@ -17,3 +17,54 @@ a{
     background-color: orange;
     text-decoration: none;
 }
+
+#page-title{
+    text-shadow: 4px 4px rebeccapurple;
+    font-family: Rockwell, serif;
+}
+
+#author{
+    text-align: center;
+    color: darkred;
+}
+
+#favorite-music-name{
+    background-color: blue;
+}
+
+.favorites-section{
+    border: 5px hotpink solid;
+    margin: 5px;
+    padding: 5px;
+}
+
+#risotto{
+    background-color: gray;
+    color: blue;
+}
+
+#rice{
+    background-color: gray;
+    color: darkmagenta;
+}
+
+#pasta{
+    background-color: gray;
+    color: darkseagreen;
+}
+
+#foods{
+    background-color: cyan;
+}
+
+#movie{
+    background-color: darkorchid;
+}
+
+#band{
+    background-color: darkred;
+}
+
+#books{
+    background-color: lawngreen;
+}
