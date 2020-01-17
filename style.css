@@ -1,0 +1,19 @@
+p{
+    color:yellow
+}
+
+h1{
+    color: lawngreen;
+    font-style: italic;
+    text-align: center;
+}
+
+body{
+    background-color: gray;
+    font-family: avant garde, sans-serif;
+}
+
+a{
+    background-color: orange;
+    text-decoration: none;
+}
