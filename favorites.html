@@ -6,52 +6,82 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
+<!--title header for page-->
 <h1 id="page-title">
     Some of my favorite things
 </h1>
 
+<!--author header-->
 <h1 id="author">
     By Tom
 </h1>
 
+<!--favorite movie section-->
 <div class="favorites-section" id="movie">
-<h2>Favorite Movie</h2>
+<h2 class="section-header">Favorite Movie</h2>
+<!--    insert image, italicize movie title, add brief description and provide a informative link  -->
     <img src="trouble.jpg" height="200">
-    <p><i><span>Big Trouble in Little China</span></i> is, without irony, my favorite movie.</p>
-<p>Description: Kurt Russel fails to Kurt Russel for 90 minutes</p>
+    <p><span id="favorite-movie-title">Big Trouble in Little China</span> is, without irony, my favorite movie.</p>
+<p id="movie-paragraph">Description: Kurt Russel fails to Kurt Russel for 90 minutes</p>
 <a href="https://en.wikipedia.org/wiki/Big_Trouble_in_Little_China">Big Trouble in Little China wiki</a>.
 </div>
 
+<!--favorite music section-->
+<!--create div and define class/id, create header, bold band name and link to informational site.-->
 <div class="favorites-section" id="band">
-<h2 id="favorite-music-name">Favorite Music</h2>
-<p><b><span>Gogol Bordello</span></b> is one of my favorite bands <a href="http://www.gogolbordello.com">Band site link</a>.</p>
+<h2 id="favorite-music-name" class="section-header">Favorite Music</h2>
+    <p><span id="favorite-music-artist">Gogol Bordello</span> <span id="music-para">is one of my favorite bands</span> <a href="http://www.gogolbordello.com">Band site link</a>.</p>
+<!--    insert band image-->
     <img src="band.jpg" height="200">
 </div>
 
+<!--favorite foods section-->
 <div class="favorites-section" id="foods">
-<h2>Favorite foods</h2>
+<h2 class="section-header">Favorite foods</h2>
+
+<!--    start unsorted list-->
+<ul>
+<!--    list food items, add links to recipes for each item, and add picture-->
     <li>Spaghetti with Marinara and parmesan cheese - <a id="pasta" href="https://www.bettycrocker.com/recipes/spaghetti-with-marinara-sauce/52051239-6702-42d7-b3a7-b970250e3d23">recipe</a></li>
     <img src="pasta.jpeg" height="200"></a>
     <li>Fried rice - <a id="rice" href="https://www.allrecipes.com/recipe/79543/fried-rice-restaurant-style/">recipe</a></li>
     <img src="rice.jpeg" height="200" alt="a picture of fried rice"></a>
-    <li>Mushroom Risotto - <a id="risotto" href="https://www.allrecipes.com/recipe/85389/gourmet-mushroom-risotto/>recipe">recipe</a></li>
+    <li id="most-favorite-food">Mushroom Risotto - <a href="https://www.allrecipes.com/recipe/85389/gourmet-mushroom-risotto/>recipe">recipe</a></li>
     <img src="risotto.jpeg" height="200" alt="a picture of risotto"></a>
 
 </ul>
 </div>
 
+<!--favorite images section-->
+<div class="favorites-section" >
+    <h2 class="section-header">Some favorite images</h2>
+
+<!--    insert images and elements to each-->
+    <img src="lady.jpg" alt="Lady no kids" height="300" title="Lady no pants" class="favorite-image">
+    <img src="honks.jpeg" height="300" alt="Bonk" class="favorite-image">
+    <img src="peace.jpg" height="300" title="goose" class="favorite-image">
+</div>
+
+<!--favorite books section-->
 <div class="favorites-section" id="books">
-    <h2>Favorite books</h2>
+    <h2 class="section-header">My Favorite books</h2>
     <p id="fav-books">Some of my favorite books include...</p>
-    <ol id>
-        <li>Hitchhiker's Guide to the Galaxy by Douglas Adams</li>
+
+<!--    insert images and add elements-->
         <img src="book.jpeg" alt="book cover" title="book" height="200"></a>
-        <li>A dirty Job by Christopher Moore</li>
         <img src="dirty.jpeg" height="200" alt="book cover"></a>
-        <li>Sacre Bleu by Christopher Moore</li>
         <img src="sacre.jpeg" height="200"></a>
-    </ol>
+
+<!--    create table for books. th used in header and td for column elements-->
+        <table id="book-table">
+            <tr><th>Book Title</th><th>Author</th><th>Book information</th></tr>
+            <tr><td>A dirty Job</td><td>Christopher Moore</td><td><a href="https://www.amazon.com/Dirty-Job-Novel-Christopher-Moore/dp/0060590289">Link</a></td></tr>
+            <tr><td>Hitchhiker's Guide to the Galaxy</td><td>Douglas Adams</td><td><a href="https://www.amazon.com/Ultimate-Hitchhikers-Guide-Galaxy/dp/0345453743/ref=sr_1_2?crid=1U2DW0I5Y6XOQ&keywords=hitchhikers+guide+to+the+galaxy&qid=1579227718&s=books&sprefix=hitch%2Cstripbooks%2C396&sr=1-2">Link</a></td></tr>
+            <tr><td>Sacre Bleu</td><td>Christopher Moore</td><td><a href="https://www.amazon.com/Sacre-Bleu-Comedy-Christopher-Moore/dp/006177975X/ref=sr_1_1?crid=3A7VYHU397F2B&keywords=sacre+bleu+christopher+moore&qid=1579227749&s=books&sprefix=sacre+b%2Cstripbooks%2C283&sr=1-1">Link</a></td></tr>
+        </table>
+
+
+
 </div>
 
 </body>

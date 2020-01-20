@@ -8,6 +8,7 @@ h1{
     text-align: center;
 }
 
+
 body{
     background-color: gray;
     font-family: avant garde, sans-serif;
@@ -38,6 +39,10 @@ a{
     padding: 5px;
 }
 
+.section-header{
+    border: 5px brown solid;
+}
+
 #risotto{
     background-color: gray;
     color: blue;
@@ -66,5 +71,42 @@ a{
 }
 
 #books{
-    background-color: lawngreen;
+    background-color: white;
+}
+
+#book-table{
+    margin: 5px;
+}
+
+#most-favorite-food{
+    font-family: Rockwell, serif;
+    color: blue;
+}
+
+#movie-paragraph{
+    color: lawngreen;
+}
+
+#music-para{
+    color: hotpink;
+}
+
+#favorite-movie-title{
+    font-style: italic;
+}
+
+#favorite-music-artist{
+    font-weight: bold;
+}
+
+.favorite-image{
+    border-radius: 50%;
+}
+
+th{
+    color: cyan;
+}
+
+td {
+    color: orange;
 }
