@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Turn</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--order does matter here. Stylesheets will be applied in the order they are listed-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="feedback-styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+
+</head>
+<body class="m-3">
+<div class="jumbotron">
+<h1>Please provide feedback. You may do so anonymously.</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-5">
+<div>
+    <p>AS one of our students, your thoughts, comments, and feedback are very important to us.</p>
+    <p>Please use this form to send us your feedback.</p>
+    <p>If you would like a response, please incluse your contact information</p>
+</div>
+</div> <!-- end of first column -->
+
+    <div class="col-md-7">
+<form class="ml-5">
+    <br><label for="name"> Name </label> <input type="text" name="name" id="name" class="form-control">
+    <br><label for="email"> Email </label> <input type="email" name="email" id="email" class="form-control">
+    <br><label for="comments">Comments</label>
+    <br><textarea rows="3" cols="40" id="comments" name="comments" required class="form-control">
+</textarea>
+</p>
+
+    <p class="form-text">Are you a current student?</p>
+
+    <div class="form-check">
+    <input name="enrolled" type="radio" checked id="enrolled" class="form-check-input">
+    <label for="enrolled" class="form-check-label">Yes</label>
+    </div>
+    <div class="form-check">
+    <input name="enrolled" type="radio" id="not-enrolled" class="form-check-input">
+    <label for="not-enrolled" class="form-check-label">No</label>
+    </div>
+    <div>
+    <input class="btn btn-primary mt-2" type="submit">
+    </div>
+
+</form>
+    </div> <!-- end of second column -->
+</div> <!-- end of row -->
+</body>
+</html>

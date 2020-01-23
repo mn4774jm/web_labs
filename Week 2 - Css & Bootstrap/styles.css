@@ -1,0 +1,5 @@
+#real-alert{
+    color: red;
+    /*block makes an in-line element display as a block element*/
+    display: block;
+}

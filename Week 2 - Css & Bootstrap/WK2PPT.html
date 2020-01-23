@@ -1,0 +1,90 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Send Missile Alert</title>-->
+<!--    <link rel="stylesheet" type="text/css" href="styles.css">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<h1>Missile Alerts</h1>-->
+
+<!--<a id="real-alert" href="#">Send Missile Alert</a>-->
+<!--<a id="test-only" href="#">Send Test Missile Alert</a>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Power Point</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<p>
+
+<!--<br> is a line break-->
+<!--types are hints for the browser as to how to display the data-->
+<p>
+<br>Enter your name: <input type="text" name="name">
+<br>Enter your email: <input type="email" name="email">
+<!--input box with an arrow to increase/decrease value-->
+<br>What's your lucky number?: <input type="number" value="42" name="number">
+<!--creates a mm/dd/yyyy format box with a drop down menu to select date-->
+<br>What's your birth date?: <input type="date" name="birthday">
+<br>What time is it?: <input type="time" name="time">
+<br>Select a number from this range: <input type="range" name="date">
+<br>Choose your favorite color: <input type="color" name="fav_color">
+<br>What's the secret password?: <input type="password" name="password">
+<br>Search: <input type="search" name="search">
+<br>Are you sure?: <input type="checkbox" name="confirm">
+</p>
+
+<p>
+<!--    text area is for multi-line responses-->
+    <br><label for="joke">What's your favorite joke?</label>
+    <br> <textarea name="joke" id="joke"></textarea>
+
+    <br>Please provide any additional information
+    <br> <textarea rows="12" cols="100"></textarea>
+</p>
+
+<p>What's your favorite weather?
+<!--    creates options for a drop down menu-->
+    <select>
+    <option>Sunny</option>
+    <option>Snowy</option>
+    <option>Rainy</option>
+    </select>
+</p>
+<p>
+    Coke or Pepsi?
+<!--    two radio buttons with the same name are part of a group / only one can be selected at a time-->
+    <input name="soda" type="radio" checked>Coke
+    <input name="soda" type="radio">Pepsi
+
+
+    <label for="what-class">What class is this?</label>
+    <input id="what-class" name="what-class">
+</p>
+
+<!--forms are used to submit data to the server-->
+<!--labels, ids, and names are required information-->
+<form>
+    <label for="username"> Username:</label> <input id="username" name="username">
+    <br><label for="password"> Password:</label> <input id="password" name="password" type="password">
+    <br><input type="submit">
+</form>
+
+<!--validating and submitting forms-->
+<form>
+    <label for="item-1">First Item (Required)</label> <input id="item-1" name="item-1" required><br>
+    <label for="item-2">First Item </label> <input id="item-2" name="item-2"><br>
+    <input type="submit">
+</form><br>
+
+
+
+</body>
+</html>
