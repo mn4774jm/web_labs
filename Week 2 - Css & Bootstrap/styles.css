@@ -2,4 +2,13 @@
     color: red;
     /*block makes an in-line element display as a block element*/
     display: block;
+    font-weight: bold;
+    background-color: black;
+    font-size: 40px;
+    align-content: center;
+    padding: 15px;
+}
+
+#test-only{
+    align-content: center;
 }
