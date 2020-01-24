@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Power Point</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="../Missile-test/missile-styles.css">
 </head>
 <p>
 
@@ -18,11 +18,17 @@
 <br>What's your lucky number?: <input type="number" value="42" name="number">
 <!--creates a mm/dd/yyyy format box with a drop down menu to select date-->
 <br>What's your birth date?: <input type="date" name="birthday">
+<!--    similar to date-->
 <br>What time is it?: <input type="time" name="time">
-<br>Select a number from this range: <input type="range" name="date">
+<!--Slider requires Javascript to display output-->
+<br>Select a number from this range: <input type
+                                                    ="range"  name="range">
+    <!--    opens an RBG wheel-->
 <br>Choose your favorite color: <input type="color" name="fav_color">
+<!--    characters appear as dots in window-->
 <br>What's the secret password?: <input type="password" name="password">
 <br>Search: <input type="search" name="search">
+<!--    Checkbox -->
 <br>Are you sure?: <input type="checkbox" name="confirm">
 </p>
 
@@ -47,7 +53,7 @@
     Coke or Pepsi?
 <!--    two radio buttons with the same name are part of a group / only one can be selected at a time-->
     <input name="soda" type="radio" checked>Coke
-    <input name="soda" type="radio">Pepsi
+    <input name="soda" type="radio">Pepsi<br>
 
 
     <label for="what-class">What class is this?</label>
