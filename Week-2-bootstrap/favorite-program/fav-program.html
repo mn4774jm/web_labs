@@ -4,9 +4,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Favoite Program</title>
+    <title>Favorite Program</title>
 </head>
 <body>
+<div class="jumbotron">
+    <h2>Scrabble Utility Program</h2>
+</div>
+
+<div class="description">
+    <p>The scrabble utility program was developed in Java using SQLite as a compliment to people playing Scrabble on
+    a physical standard edition board. Features included:</p>
+    <a href="https://github.com/mn4774jm/scrabble_project_java">Program Github Link</a>
+
+    <ul>
+        <li><h4>An easy to use graphical interface</h4></li>
+        <img src="main_pic.png" height="200">
+        <div class="code-example">
+        <pre>
+            <code>
+  String scoreString = enterWordTextBox.getText();
+        boolean validation = numCheck(scoreString);
+        if (!validation) {
+            JOptionPane.showMessageDialog(null, "Enter only numbers in score field");
+        } else {
+            int scoreInt = Integer.parseInt(enterWordTextBox.getText());
+            //create new object for new row in DB
+            scoreObject newScore = new scoreObject(playerTurnList.get(turnCounter), scoreInt, turnCounter, date);
+
+            //call method to create new row
+            wordController.addNewScore(newScore);
+
+            //get sum value from database
+            int scoreSearch = wordController.searchScore(turnCounter);
+
+            //set set score to appropriate cell
+            tableModel.setValueAt(scoreSearch, turnCounter, 1);
+
+            //if not the last player in list, add 1 to the turn counter to advance the game
+            if (turnCounter < playerTurnList.size() - 1) {
+                turnCounter += 1;
+                playerTurnLabel.setText(playerTurnList.get(turnCounter) + "'s turn");
+            } else {
+                //if last player in list reset counter to 0
+                turnCounter = 0;
+                playerTurnLabel.setText(playerTurnList.get(turnCounter) + "'s turn");
+            }
+            //clear text box after turn
+        }
+        enterWordTextBox.setText("");
+    }
+            </code>
+        </pre>
+        </div>
+        <li><h4>A connected database, using SQLite, that allows users to both check valid words and store scores in a leader board</h4></li>
+<img src="dict-pic.png"  height="200">
+        <div class="code-example">
+            <pre>
+                <code>
+        //get text from box and change case
+        String wordToCheck = firstLetterUpper(dictionaryTextBox.getText());
+        //pass text to controller for use with database
+        WordObject wordSearch = wordController.searchForWord(wordToCheck);
+        //object returned; DB query is set to only return one value so this is overkill but that may change
+        if (wordSearch != null) {
+            String word = wordSearch.getWord();
+            String wordtype = wordSearch.getWordType();
+            String def = wordSearch.getDefinition();
+            showMessageDialog(String.format("Congratulations! Match found.\nWord: %s\nWord Type: %s\nDefinition: %s", word, wordtype, def));
+        } else {
+            showMessageDialog("No matches found");
+        }
+        //clear text from box
+        dictionaryTextBox.setText("");
+    }
+                </code>
+            </pre>
+        </div>
+
+        <li><h4>A challenge mode for when you think the folks you are playing with might very well be full of it</h4></li>
+        <img src="challenge.png"  height="200">
+        <div class="code-example">
+            <pre>
+                <code>
+        //get challenged players name
+        String challengedPlayer = (String) challengeComboBox.getSelectedItem();
+        //assert to avoid null pointer exception when validating combobox
+        assert challengedPlayer != null;
+        //if name not selected user is messaged
+        if (challengedPlayer.equals("Choose player to challenge")){
+            showMessageDialog("Please select a player to challenge");
+        }else {
+            //get player id from hashmap using playername as the key
+            int id = idNamePairMap.get(challengedPlayer);
+
+            //get last score from DB
+            int lastPlay = wordController.retrieveScore(id);
+
+            //penalty variable
+            int scoreHammer = -(lastPlay);
+
+            //get word to check from the play, convert to correct case format
+            String challengedWord = JOptionPane.showInputDialog("Enter word in question");
+            challengedWord = firstLetterUpper(challengedWord);
+
+            //Call database to search for word
+            WordObject wordSearch = wordController.searchForWord(challengedWord);
+            punishmentPhase(lastPlay, scoreHammer, wordSearch, challengedPlayer);
+
+        }
+    }
+                </code>
+            </pre>
+        </div>
+
+
+    </ul>
+</div>
 
 </body>
 </html>
