@@ -5,8 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Favorite Program</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="fav-program-style.css">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
 </head>
-<body>
+<body class="form-control">
 <div class="jumbotron">
     <h2>Scrabble Utility Program</h2>
 </div>
@@ -14,12 +20,15 @@
 <div class="description">
     <p>The scrabble utility program was developed in Java using SQLite as a compliment to people playing Scrabble on
     a physical standard edition board. Features included:</p>
-    <a href="https://github.com/mn4774jm/scrabble_project_java">Program Github Link</a>
+    <a href="https://github.com/mn4774jm/scrabble_project_java" id="git-link">Program Github Link</a><br>
 
     <ul>
-        <li><h4>An easy to use graphical interface</h4></li>
-        <img src="main_pic.png" height="200">
-        <div class="code-example">
+       <br><li><h3>An easy to use graphical interface</h3></li>
+        <div class="row">
+            <div class="col-md-6">
+        <img src="main_pic.png" height="400">
+            </div>
+        <div class="col-md-6">
         <pre>
             <code>
   String scoreString = enterWordTextBox.getText();
@@ -56,8 +65,13 @@
             </code>
         </pre>
         </div>
-        <li><h4>A connected database, using SQLite, that allows users to both check valid words and store scores in a leader board</h4></li>
-<img src="dict-pic.png"  height="200">
+        </div>
+        <br><li><h3>A connected database, using SQLite, that allows users to both check valid words and store scores in a leader board</h3></li>
+<div class="row">
+    <div class="col-md-6">
+        <img src="dict-pic.png"  height="400">
+    </div>
+    <div class="col-md-6">
         <div class="code-example">
             <pre>
                 <code>
@@ -80,9 +94,14 @@
                 </code>
             </pre>
         </div>
+    </div>
 
-        <li><h4>A challenge mode for when you think the folks you are playing with might very well be full of it</h4></li>
-        <img src="challenge.png"  height="200">
+        <br><li><h3>A challenge mode for when you think the folks you are playing with might very well be full of it</h3></li>
+    <div class="row">
+        <div class="col-md-6">
+        <img src="challenge.png"  height="300">
+        </div>
+        <div class="col-md-6">
         <div class="code-example">
             <pre>
                 <code>
@@ -116,8 +135,9 @@
                 </code>
             </pre>
         </div>
-
-
+        </div>
+    </div>
+</div>
     </ul>
 </div>
 

@@ -1,0 +1,23 @@
+.col-md-6{
+    border: solid black 5px;
+}
+
+#git-link{
+    text-decoration: underline;
+}
+
+h3{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.jumbotron{
+    text-align: center;
+    background-color: #3c4cff;
+    color: #e6f2ff;
+    font-family: 'Anton', sans-serif;
+}
+
+.description{
+    font-family: 'Shadows Into Light', cursive;
+}
