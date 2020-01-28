@@ -18,17 +18,17 @@
 </div>
 
 <div class="description">
-    <p>The scrabble utility program was developed in Java using SQLite as a compliment to people playing Scrabble on
-    a physical standard edition board. Features included:</p>
+    <p>The scrabble utility program was developed in Java using SQLite as a compliment for people playing Scrabble on
+    a physical standard edition board. It may not have broad appeal but I use it in my household fairly regularly. Features included:</p>
     <a href="https://github.com/mn4774jm/scrabble_project_java" id="git-link">Program Github Link</a><br>
 
     <ul>
-       <br><li><h3>An easy to use graphical interface</h3></li>
+        <br><li><h3>An easy to use graphical interface</h3></li>
         <div class="row">
             <div class="col-md-6">
         <img src="main_pic.png" height="400">
             </div>
-        <div class="col-md-6">
+        <div class="col-sm-6" class="form-control">
         <pre>
             <code>
   String scoreString = enterWordTextBox.getText();
@@ -42,12 +42,6 @@
 
             //call method to create new row
             wordController.addNewScore(newScore);
-
-            //get sum value from database
-            int scoreSearch = wordController.searchScore(turnCounter);
-
-            //set set score to appropriate cell
-            tableModel.setValueAt(scoreSearch, turnCounter, 1);
 
             //if not the last player in list, add 1 to the turn counter to advance the game
             if (turnCounter < playerTurnList.size() - 1) {
@@ -71,8 +65,8 @@
     <div class="col-md-6">
         <img src="dict-pic.png"  height="400">
     </div>
-    <div class="col-md-6">
-        <div class="code-example">
+    <div class="col-sm-6">
+        <div class="code-example" class="form-control">
             <pre>
                 <code>
         //get text from box and change case
@@ -94,15 +88,15 @@
                 </code>
             </pre>
         </div>
-    </div>
+    </div></div>
 
         <br><li><h3>A challenge mode for when you think the folks you are playing with might very well be full of it</h3></li>
     <div class="row">
         <div class="col-md-6">
         <img src="challenge.png"  height="300">
         </div>
-        <div class="col-md-6">
-        <div class="code-example">
+        <div class="col-sm-6">
+        <div class="code-example" class="form-control">
             <pre>
                 <code>
         //get challenged players name
@@ -121,23 +115,17 @@
 
             //penalty variable
             int scoreHammer = -(lastPlay);
-
-            //get word to check from the play, convert to correct case format
-            String challengedWord = JOptionPane.showInputDialog("Enter word in question");
-            challengedWord = firstLetterUpper(challengedWord);
-
-            //Call database to search for word
-            WordObject wordSearch = wordController.searchForWord(challengedWord);
-            punishmentPhase(lastPlay, scoreHammer, wordSearch, challengedPlayer);
-
         }
     }
                 </code>
             </pre>
+
         </div>
         </div>
     </div>
-</div>
+
+
+
     </ul>
 </div>
 

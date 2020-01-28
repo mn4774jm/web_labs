@@ -1,5 +1,6 @@
 .col-md-6{
     border: solid black 5px;
+
 }
 
 #git-link{
@@ -21,3 +22,13 @@ h3{
 .description{
     font-family: 'Shadows Into Light', cursive;
 }
+
+p:first-letter {
+    font-size: 200%;
+}
+
+p:first-line {
+    font-weight: bold;
+}
+
+
