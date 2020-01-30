@@ -6,36 +6,47 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<!--    link stylesheets-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="conference.css">
+
 </head>
 
 <body class="m-3">
+<!--define columns used and use bootstrap for alignment-->
 <div class="col-md-7" id="form-body">
+<!--    begin form -->
     <form class="ml-5">
+<!--        create text areas for user input, assign labels, names, and ids-->
     <br><label for="name">Name </label><input type="text" name="name" id="name" maxlength="70" required class="form-control">
     <br><label for="password">Password</label><input type="password" name="password" id="password" required class="form-control">
     <br><label for="email">E-mail</label><input type="email" name="email" id="email" required class="form-control">
     <br>What is your T-shirt Size?
+<!--        create dropdown box and options-->
     <select required>
         <option>Small</option>
         <option>Medium</option>
         <option>Large</option>
     </select>
+<!--        create DOB type input w/ label and name-->
     <br><label for="DOB">Birth Date &nbsp</label><input type="date" name="DOB" id="DOB" required>
+<!--        create radio buttons and set default to yes-->
     <p>Would you like to receive emails from the conference sponsors?
     <br><input type="radio" name="yes" id="yes" checked >Yes
     &nbsp <input type="radio" name="no" id="no" >No
     </p>
     What session will you be attending?
+<!--        create check box, no default; both may be selected-->
     <br>Morning &nbsp<input type="checkbox" name="morning">&nbsp Afternoon &nbsp<input type="checkbox" name="afternoon">
     <br><label for="requests">Special Requests</label>
+<!--        create text area and set dimensions-->
     <br><textarea rows="7" cols="70" name="requests" id="requests"></textarea>
     <div>
+<!--        create submit button-->
         <input class="btn btn-primary mt-2" type="submit">
     </div>
+<!--        end submission form-->
     </form>
 </div>
 

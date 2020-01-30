@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--intro text-->
+<p><span>Enter some text to add to the list</span></p>
+
+<!--create text box, submit, and clear button-->
+<input type="text" id="user-text">
+<button id="submit-text">Add</button><br>
+<button id="clear">Clear</button>
+
+<!--create unordered list-->
+<ul id="user-list">
+
+</ul>
+
+<script>
+    // create new variables to hold user input pulled from html to script
+    let overTen = document.querySelector('span')
+    let userText = document.querySelector('#user-text')
+    let submitButton = document.querySelector('#submit-text')
+    let userList = document.querySelector('#user-list')
+    let clearButton = document.querySelector('#clear')
+
+    // button listener created for when user presses the submit button
+    submitButton.addEventListener('click', function() {
+        // validation; when user exceeds 10 entries new entry is not accepted and a message is displayed
+        //check length of elements and set conditional
+        if (userList.getElementsByTagName('li').length <= 9) {
+            let newPut = userText.value
+            let listItem = document.createElement('li')
+            listItem.innerHTML = newPut
+            userList.appendChild(listItem)
+        } else {
+            overTen.innerHTML = 'Clear list to add more items'
+        }
+    })
+    //triggers when clear button is pressed; clears ul elements and resets intro text
+    clearButton.addEventListener('click', function() {
+        userList.innerHTML = ''
+        overTen.innerHTML = 'Enter some text to add to the list'
+    })
+
+
+</script>
+
+</body>
+</html>

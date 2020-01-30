@@ -1,0 +1,28 @@
+.tab-button {
+    background-color: lightblue;
+    border: none;
+    padding: 10px;
+    margin: 1px;
+    outline: none;  /*remove blue highlight when the button is clicked*/
+}
+
+.tab-button:hover {
+    background-color: cornflowerblue;
+}
+
+#tabs {
+    background-color: gainsboro;
+    border: 1px solid darkblue;
+
+}
+
+.tab-content {
+    border-left: 1px solid darkblue;
+    border-right: 1px solid darkblue;
+    border-bottom: 1px solid darkblue;
+    padding: 10px;
+}
+
+.tab-button {
+    background-color: aquamarine;
+}

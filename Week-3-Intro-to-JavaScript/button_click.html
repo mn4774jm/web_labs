@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Button Click</title>
+</head>
+<body>
+
+<button> Click Here!</button>
+
+<script>
+//Find the button element in the page
+    let button = document.querySelector('button')
+    let counter = 0
+//document.querySelector returns the first match. Returns null if nothing matches
+//document.querySelectorAll returns a NodeList* of all matching elements
+//declare a variable with 'let' (or var) keyword----
+
+    // Add an event listener for click events, with a callback function
+    // The callback function runs when the event (clicking the button) happens
+    button.addEventListener('click', function(){
+        alert('You clicked the button!')
+        button.innerHTML = 'Do NOT click this button again.'
+        if (counter > 0) {
+            button.innerHTML = "You son of a..."
+        }
+        counter ++
+    })
+
+
+</script>
+
+</body>
+</html>

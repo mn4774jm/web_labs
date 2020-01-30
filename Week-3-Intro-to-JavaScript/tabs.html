@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabbed Content</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!--Header-->
+<h1>Favorite Foods</h1>
+
+<!--create tabs; add classes and 'data-content-id'-->
+<div id="tabs">
+    <button data-content-id="pizza" class="tab-button">Pizza</button>
+    <button data-content-id="cheesecake" class="tab-button">Cheesecake</button>
+    <button data-content-id="sushi" class="tab-button">Sushi</button>
+</div>
+<!--create content for tabs-->
+<div id="pizza" class="tab-content">Pizza is awesome</div>
+<div id="cheesecake" class="tab-content">Cheesecake is delicious</div>
+<div id="sushi" class="tab-content">Sushi is amazing</div>
+
+<script>
+    // create variables for use in script
+    let buttons = document.querySelectorAll('.tab-button')
+    let tabContents = document.querySelectorAll('.tab-content')
+
+    // hide all of the tab content divs
+    tabContents.forEach(function(divEl) {
+        divEl.style.display = 'none'
+    })
+
+    // Add event listener to each button
+    buttons.forEach( function(buttonEl){
+        buttonEl.addEventListener('click', function(){
+
+            // within the function, 'this' refers to the element that generated...
+            // Can expect it to be one of the button elements
+
+            // Hide all of the tab content divs
+            tabContents.forEach( function(divEl) {
+                divEl.style.display = 'none'
+            })
+
+            // What is the data-content-id value for the button clicked
+            let contentId = this.getAttribute('data-content-id')
+
+            // select and show the tab content with this id
+            let tabContent = document.querySelector('#' + contentId)
+            tabContent.style.display = 'block'
+
+            // Remove the 'active' class from the other buttons
+            buttons.forEach(function(button){
+                button.classList.remove('active')
+            })
+
+            // Add the 'active' class to the button to change its style
+            this.classList.add('active')
+        })
+    })
+
+    // Show the first tab, so it's visible when the page loads
+    tabContents[0].style.display = 'block'
+
+    // And make the first button active
+    buttons[0].classList.add('active')
+
+
+</script>
+
+</body>
+</html>

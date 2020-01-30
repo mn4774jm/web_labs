@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment Status</title>
+</head>
+<body>
+
+    <p>How many credits are you taking this semester?</p>
+    <input type="number" id="credit-count">
+    <button id="submit-credits">Enter</button>
+
+    <p id="status-message"></p>
+
+<script>
+
+    let submitButton = document.querySelector('#submit-credits')
+    let creditsInput = document.querySelector('#credit-count')
+    let statusMessage = document.querySelector('#status-message')
+
+    submitButton.addEventListener('click', function() {
+        let credits = creditsInput.value
+        if (credits >= 12) {
+            statusMessage.innerHTML = 'You are enrolled as a full-time student'
+        } else if (credits <12 && credits >= 6){
+            statusMessage.innerHTML = 'You are enrolled as a half-time student'
+        } else{
+            statusMessage.innerHTML = 'You are enrolled less than half-time'
+        }
+    })
+</script>
+
+</body>
+</html>
