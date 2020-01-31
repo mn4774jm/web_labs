@@ -50,62 +50,75 @@
 
 <script>
 
-    //  Add the following functionality to this page
-    // When the page loads
-    //     - Using JavaScript, display 0 in span#student-count COMPLETE
-    // When button#add-students is clicked
-    //     - Read the value from the student-name input
-    //     - Read the value from the student-id input
-    //     - Read the value from the student-gpa input
-    //     - Create a new li element
-    //     - Set the new li element innerHTML to a string containing the student's name, id, and GPA
-    //         - for example "Beyonce Knowles, id: aa1234bb, GPA: 3.8"
-    //         - Use a template string
-          //TODO
-    //     - Add a click event handler to each li element.
-    //         When a li element is clicked, add the class="selected" to that li element.
-    //         When a li element is clicked again, remove the class="selected" from that li element
-    //     - Add the new li element to ul#student-list element
-    //     - Update the span#student-count value to the new number of students
-    // When button#remove-selected-students is clicked,
-    //     - remove all of the elements with the class="selected" from the list.
-
-    //find elements and assign to variables
+    // locate elements and assign to variables
     let addButton = document.querySelector('button#add-student');
-    let removeButton = document.querySelectorAll('button#remove-selected-student')
+    let removeButton = document.querySelector('#remove-selected-students');
     let studentCountMessage = document.querySelector('span#student-count');
     let studentList = document.querySelector('ul#student-list');
     let studentName = document.querySelector('#student-name');
     let studentId = document.querySelector('#student-id');
     let studentGpa = document.querySelector('#student-gpa');
-    studentCountMessage.innerHTML = '0'
+    // initial value for student count message
+    studentCountMessage.innerHTML = '0';
 
-
+    // listener for when the add button is clicked
     addButton.addEventListener('click', function(){
+        // store values from user entry
+        let nameValue = studentName.value;
+        let idValue = studentId.value;
+        let gpaValue = studentGpa.value;
+        // initialize string for alart message
+        let alarmString = '';
 
-        let listItem = document.createElement('li');
-        listItem.innerHTML = `NAME: ${studentName.value}, STUDENT ID: ${studentId.value}, GPA: ${studentGpa.value}`
-        studentList.appendChild(listItem)
-        let countUpdate = studentList.getElementsByTagName('li').length
-        studentCountMessage.innerHTML = `${countUpdate}`
+            // conditionals to build alarm string
+            if (nameValue.length === 0){
+                alarmString += 'Enter Name\n'
+            }
+            if (idValue.length === 0){
+                alarmString += 'Enter Student ID\n'
+            }
+            if (gpaValue < 0 || gpaValue > 4 || gpaValue.length === 0){
+                alarmString += 'Enter GPA between 0 and 4'
+            }
 
-    })
+            // validation for user entry
+        if (nameValue.length === 0 || idValue === 0 || gpaValue > 4 || gpaValue <0 || gpaValue.length === 0){
+            alert(alarmString)
+        }else{
 
-    studentList.addEventListener('click', function(){
+            // create new li element
+            let listItem = document.createElement('li');
+            // set new text
+            listItem.innerHTML = `Name: ${nameValue}, Student ID: ${idValue}, GPA: ${gpaValue}`;
+            //listener to check class of item clicked
+            listItem.addEventListener('click', function () {
+                // add class / change if class === selected
+                if (this.classList.contains('selected')) {
+                    this.setAttribute('class', '')
+                } else {
+                    this.classList.add('selected')
+                }
+            });
 
-        if (this.classList.contains('selected')){
-            this.setAttribute('class','')
-        }else {
-            this.setAttribute('class', 'selected')
+            // add new li element to ul
+            studentList.appendChild(listItem);
+            //update count for number of students
+            let countUpdate = studentList.getElementsByTagName('li').length;
+            studentCountMessage.innerHTML = `${countUpdate}`
         }
     })
 
-    // removeButton.addEventListener('click', function(){
-    //
-    // })
-
-
-
+    removeButton.addEventListener('click', function() {
+        //find all items with class='selected'
+        let removeList = document.querySelectorAll('.selected');
+        // loop through and remove selected items
+        removeList.forEach(function (item) {
+            item.remove()
+        })
+        // update student count
+        let countUpdate = studentList.getElementsByTagName('li').length;
+        studentCountMessage.innerHTML = `${countUpdate}`
+    })
 
 
 </script>

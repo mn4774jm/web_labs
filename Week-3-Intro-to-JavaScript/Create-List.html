@@ -29,6 +29,7 @@
 
     // button listener created for when user presses the submit button
     submitButton.addEventListener('click', function() {
+        //store value of user text to add to new li
         let newPut = userText.value
         if (newPut.length > 50) {
             alert("Only entries with fewer than 50 characters may be entered")
@@ -36,9 +37,11 @@
             // validation; when user exceeds 10 entries new entry is not accepted and a message is displayed
             //check length of elements and set conditional
             if (userList.getElementsByTagName('li').length <= 9) {
-                // let newPut = userText.value
+                //create new element
                 let listItem = document.createElement('li')
+                // set new text
                 listItem.innerHTML = newPut
+                //add new li to userList
                 userList.appendChild(listItem)
             } else {
                 overTen.innerHTML = 'Clear list to add more items'
