@@ -20,7 +20,7 @@
 </ul>
 
 <script>
-    // create new variables to hold user input pulled from html to script
+    // find elements and assign to variables
     let overTen = document.querySelector('span')
     let userText = document.querySelector('#user-text')
     let submitButton = document.querySelector('#submit-text')
@@ -29,15 +29,20 @@
 
     // button listener created for when user presses the submit button
     submitButton.addEventListener('click', function() {
-        // validation; when user exceeds 10 entries new entry is not accepted and a message is displayed
-        //check length of elements and set conditional
-        if (userList.getElementsByTagName('li').length <= 9) {
-            let newPut = userText.value
-            let listItem = document.createElement('li')
-            listItem.innerHTML = newPut
-            userList.appendChild(listItem)
-        } else {
-            overTen.innerHTML = 'Clear list to add more items'
+        let newPut = userText.value
+        if (newPut.length > 50) {
+            alert("Only entries with fewer than 50 characters may be entered")
+        } else if (newPut.length <=50 && newPut.length >=1) {
+            // validation; when user exceeds 10 entries new entry is not accepted and a message is displayed
+            //check length of elements and set conditional
+            if (userList.getElementsByTagName('li').length <= 9) {
+                // let newPut = userText.value
+                let listItem = document.createElement('li')
+                listItem.innerHTML = newPut
+                userList.appendChild(listItem)
+            } else {
+                overTen.innerHTML = 'Clear list to add more items'
+            }
         }
     })
     //triggers when clear button is pressed; clears ul elements and resets intro text

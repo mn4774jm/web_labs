@@ -5,21 +5,27 @@
     <title>Enrollment Status</title>
 </head>
 <body>
-
+<!--    intro text-->
     <p>How many credits are you taking this semester?</p>
+<!--create input and assign type/id and create/id enter button-->
     <input type="number" id="credit-count">
     <button id="submit-credits">Enter</button>
 
+<!--    create <p> hold generated feedback-->
     <p id="status-message"></p>
 
 <script>
-
+    // locate elements and assign to variables
     let submitButton = document.querySelector('#submit-credits')
     let creditsInput = document.querySelector('#credit-count')
     let statusMessage = document.querySelector('#status-message')
 
+    // event listener for submit button
     submitButton.addEventListener('click', function() {
+        // get value from user input and store to variable
         let credits = creditsInput.value
+
+        // conditionals to decide feedback / update status messages
         if (credits >= 12) {
             statusMessage.innerHTML = 'You are enrolled as a full-time student'
         } else if (credits <12 && credits >= 6){
@@ -28,6 +34,7 @@
             statusMessage.innerHTML = 'You are enrolled less than half-time'
         }
     })
+
 </script>
 
 </body>

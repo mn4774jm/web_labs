@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Club Membership</title>
+
+    <style>
+
+        .selected {
+            text-decoration: line-through ;
+            font-style: italic;
+            color: gray;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 5px 5px 0px;
+            box-sizing: border-box;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Student Club Roster</h1>
+
+<h2>Add Students</h2>
+
+<label for="student-name">Student Name</label><input id="student-name" name="student-name">
+<br>
+<label for="student-id">Student ID</label><input id="student-id" name="student-id">
+<br>
+<label for="student-gpa">Student GPA</label><input id="student-gpa" name="student-gpa" type="number">
+<br>
+<button id="add-student">Add Student</button>
+
+<h2>Student List</h2>
+
+<p>There are
+    <span id="student-count"></span> student(s) in the club.</p>
+
+
+<ul id="student-list">
+    <!-- use JavaScript to create li elements  -->
+</ul>
+
+<button id="remove-selected-students">Remove selected students</button>
+
+<script>
+
+    //  Add the following functionality to this page
+    // When the page loads
+    //     - Using JavaScript, display 0 in span#student-count COMPLETE
+    // When button#add-students is clicked
+    //     - Read the value from the student-name input
+    //     - Read the value from the student-id input
+    //     - Read the value from the student-gpa input
+    //     - Create a new li element
+    //     - Set the new li element innerHTML to a string containing the student's name, id, and GPA
+    //         - for example "Beyonce Knowles, id: aa1234bb, GPA: 3.8"
+    //         - Use a template string
+          //TODO
+    //     - Add a click event handler to each li element.
+    //         When a li element is clicked, add the class="selected" to that li element.
+    //         When a li element is clicked again, remove the class="selected" from that li element
+    //     - Add the new li element to ul#student-list element
+    //     - Update the span#student-count value to the new number of students
+    // When button#remove-selected-students is clicked,
+    //     - remove all of the elements with the class="selected" from the list.
+
+    //find elements and assign to variables
+    let addButton = document.querySelector('button#add-student');
+    let removeButton = document.querySelectorAll('button#remove-selected-student')
+    let studentCountMessage = document.querySelector('span#student-count');
+    let studentList = document.querySelector('ul#student-list');
+    let studentName = document.querySelector('#student-name');
+    let studentId = document.querySelector('#student-id');
+    let studentGpa = document.querySelector('#student-gpa');
+    studentCountMessage.innerHTML = '0'
+
+
+    addButton.addEventListener('click', function(){
+
+        let listItem = document.createElement('li');
+        listItem.innerHTML = `NAME: ${studentName.value}, STUDENT ID: ${studentId.value}, GPA: ${studentGpa.value}`
+        studentList.appendChild(listItem)
+        let countUpdate = studentList.getElementsByTagName('li').length
+        studentCountMessage.innerHTML = `${countUpdate}`
+
+    })
+
+    studentList.addEventListener('click', function(){
+
+        if (this.classList.contains('selected')){
+            this.setAttribute('class','')
+        }else {
+            this.setAttribute('class', 'selected')
+        }
+    })
+
+    // removeButton.addEventListener('click', function(){
+    //
+    // })
+
+
+
+
+
+</script>
+
+</body>
+</html>

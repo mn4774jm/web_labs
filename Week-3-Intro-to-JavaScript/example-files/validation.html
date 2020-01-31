@@ -5,21 +5,27 @@
     <title>Validation</title>
 </head>
 <body>
+<!--opening intro text-->
 <p>Please enter your name</p>
+
+<!--collect user input and assign id / create and id save button-->
 <input type="text" id="username">
 <button id="save-user-name">Save</button>
 
+<!--create empty paragraph to hold generated message-->
 <p id="welcome-message"></p>
 
 <script>
-
+    // find elements and assign to variables
     let saveButton = document.querySelector('#save-user-name')
     let nameInput = document.querySelector('#username')
     let welcomeMessage = document.querySelector('#welcome-message')
 
+    // event listener for when save is clicked
     saveButton.addEventListener('click', function(){
+        // get value from element
         let name = nameInput.value
-
+        // conditional to ensure that the user entry is at least 2 letters
         if(name.length <2) {
             welcomeMessage.innerHTML = 'Your name must be at least two letters'
         }else {
