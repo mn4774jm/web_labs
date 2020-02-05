@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tree Order Form</title>
+
+    <style>
+
+        input, select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 5px 5px 0px;
+            box-sizing: border-box;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1>Minnesota Tree Order Form</h1>
+
+<p>Enter information to order your tree. All fields are required.</p>
+
+<h2>Order Information</h2>
+
+<label for="homeowner-name">Homeowner Name</label><input id="homeowner-name" name="homeowner-name">
+<br>
+<label for="homeowner-house-number">House Number</label><input id="homeowner-house-number" name="homeowner-house-number">
+<br>
+<label for="homeowner-street-name">Street Name</label><input id="homeowner-street-name" name="homeowner-street-name">
+<br>
+<label for="city">City</label><input id="city" name="city">
+<br>
+<!-- All orders must be for Minnesota, so this input is not editable -->
+<label for="state">State</label><input id="state" name="state" value="Minnesota" disabled>
+<br>
+<label for="zipcode">Zip Code</label><input id="zipcode" name="zipcode">
+<br>
+
+<label for="tree-type">Tree Type</label>
+<select id="tree-type">
+    <option disabled selected value=""> Select a tree </option>  <!-- Unselectable message shown. Since this will be required, it forces the user to actually pick a tree, not just click submit for the default first option -->
+    <option name="tree-type" type="radio">Lilac</option>
+    <option name="tree-type" type="radio">Maple</option>
+    <option name="tree-type" type="radio">Oak</option>
+</select>
+<br>
+
+<button id="submit-order">Submit Order</button>
+
+<h2>Order Summary</h2>
+
+<p id="order-summary">
+    <!-- Use JavaScript to display the order information,
+        if all the required information is entered  -->
+</p>
+
+
+<script>
+    //locate user entry information
+    let homeownerNameInput = document.querySelector('#homeowner-name');
+    let homeownerHouseNumberInput = document.querySelector('#homeowner-house-number');
+    let homeownerStreetNameInput = document.querySelector('#homeowner-street-name');
+    let homeownerCityInput = document.querySelector('#city');
+    let homeownerZipInput = document.querySelector('#zipcode');
+    let treeTypeSelect = document.querySelector('#tree-type');
+
+    let submitButton = document.querySelector('#submit-order');
+
+    let orderSummaryParagraph = document.querySelector('#order-summary');
+
+    submitButton.addEventListener('click', function() {
+        //get values for user entries
+        let name = homeownerNameInput.value;
+        let houseNumber = homeownerHouseNumberInput.value;
+        let streetName = homeownerStreetNameInput.value;
+        let cityName = homeownerCityInput.value;
+        let zipcodeNumber = homeownerZipInput.value;
+        let treeType = treeTypeSelect.value;
+        let errors = [];
+
+        //validation for user entries; store error messages in list if exist
+        if (name.length === 0){
+            errors.push('Enter Name')
+        }
+        if (houseNumber.length === 0){
+            errors.push('Enter House Number')
+        }
+        if (streetName.length === 0){
+            errors.push('Enter Street Name')
+        }
+        if (cityName.length === 0){
+            errors.push("Enter City Name")
+        }
+        if ((zipcodeNumber > 56763 || zipcodeNumber <55001) || zipcodeNumber.length === 0){
+            errors.push('Enter Zip Number between 55001 and 56763')
+        }
+        if (treeType.length === 0){
+            errors.push('Select a Tree Type')
+        }
+        if (errors.length > 0){
+            //join list entries using new line character as custom separator
+            alert(errors.join('\n'))
+        }else{
+            //if no errors exist template print to order summary paragraph
+            orderSummaryParagraph.innerHTML =
+                `${name}<br>${houseNumber} ${streetName}<br>${cityName}, MN ${zipcodeNumber}<br>Tree Selected: ${treeType}`
+        }
+
+    })
+
+
+
+</script>
+
+</body>
+</html>
