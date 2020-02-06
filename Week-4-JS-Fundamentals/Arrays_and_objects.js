@@ -220,35 +220,35 @@ nobel_prize_winners_2017.prizes.forEach(function (element) {
         console.log(`${element2.firstname} ${element2.surname}`)
     })
 
-})
+});console.log()
 
 //nested for each to list the ids for each of the laureates
 nobel_prize_winners_2017.prizes.forEach(function (element) {
     element.laureates.forEach(function (element2){
         console.log(`ID: ${element2.id}`)
     })
-})
+});console.log()
 
 //forEach to find the category names
 nobel_prize_winners_2017.prizes.forEach(function (element) {
     console.log(element.category)
-})
+});console.log()
 
-// TODO write code to print the total number of prize categories
+
 //created a counter and forEach loop that adds 1 in each iteration
 let count = 0
 nobel_prize_winners_2017.prizes.forEach(function (element) {
     count += 1
 })
-console.log(`Number of prize categories: ${count}`)
+console.log(`Number of prize categories: ${count}\n`)
 
-// TODO write code to count the total number of laureates from 2017.
-//   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
+//initialized counter for total laureates, for each method used and used length on laureates for each category and
+// added to total count
 let laureate_count = 0
 nobel_prize_winners_2017.prizes.forEach(function (element){
     laureate_count += element.laureates.length
 })
-console.log(`Total number of laureates: ${laureate_count}`)
+console.log(`Total number of laureates: ${laureate_count}\n`)
 
 
 
