@@ -80,24 +80,15 @@
         let errors = [];
 
         //validation for user entries; store error messages in list if exist
-        if (name.length === 0){
-            errors.push('Enter Name')
-        }
-        if (houseNumber.length === 0){
-            errors.push('Enter House Number')
-        }
-        if (streetName.length === 0){
-            errors.push('Enter Street Name')
-        }
-        if (cityName.length === 0){
-            errors.push("Enter City Name")
-        }
-        if ((zipcodeNumber > 56763 || zipcodeNumber <55001) || zipcodeNumber.length === 0){
+        //consolidated length validation in separate method
+        if (length_check(name)) {errors.push('Enter Name')}
+        if (length_check(houseNumber)) {errors.push('Enter House Number')}
+        if (length_check(streetName)) {errors.push('Enter Street Name')}
+        if (length_check(cityName)) {errors.push("Enter City Name")}
+        if ((zipcodeNumber > 56763 || zipcodeNumber <55001) || length_check(zipcodeNumber)){
             errors.push('Enter Zip Number between 55001 and 56763')
         }
-        if (treeType.length === 0){
-            errors.push('Select a Tree Type')
-        }
+        if (length_check(treeType)) {errors.push('Select a Tree Type')}
         if (errors.length > 0){
             //join list entries using new line character as custom separator
             alert(errors.join('\n'))
@@ -109,7 +100,11 @@
 
     })
 
-
+function length_check(val){
+        if (val.length === 0){
+            return true
+        }
+}
 
 </script>
 <br><br><br>
