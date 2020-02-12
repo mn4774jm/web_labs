@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gradients</title>
+
+    <style>
+        #canvas_horiz {
+            border: 1px black solid;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="canvas_horiz" height="300" width="300"></canvas>
+
+<script>
+
+    let c_h = document.getElementById('canvas_horiz');
+    let ctx_h = c_h.getContext("2d");
+
+    // create a gradient
+    // creates a gradient along the line given by the coordinates represented by the parameters.'
+    // Imagine a line from (0,0) to (300, 0) which is a horizontal line. So the gradient will fade
+    // through the colors from left to right.
+
+    let gradient_h = ctx_h.createLinearGradient(0, 0, 300, 0);
+
+    // Need at least two color stops. The first argument is where to start the color
+    // The values need to be in the range 0 to 1
+    gradient_h.addColorStop(0, 'green');
+    gradient_h.addColorStop(0.5, 'blue');
+    gradient_h.addColorStop(1, 'purple');
+
+    // Once the gradient is configured, set the fill style
+    ctx_h.fillStyle = gradient_h;
+
+    // And fill the rectangle with it
+    ctx_h.fillRect(0, 0, 300, 300);
+
+
+</script>
+
+</body>
+</html>

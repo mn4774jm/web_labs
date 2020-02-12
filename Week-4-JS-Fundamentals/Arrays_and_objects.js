@@ -213,42 +213,42 @@ let nobel_prize_winners_2017 = {
     ]
 
 };
-// forEach method used to search through each object in list and nested forEach to find firstname/surname
+// forEach method used to search through the obj and second obj in list and nested forEach to find firstname/surname
 //template string used to display names in readable way
 nobel_prize_winners_2017.prizes.forEach(function (element) {
     element.laureates.forEach(function (element2) {
         console.log(`${element2.firstname} ${element2.surname}`)
     })
 
-});console.log()
+});console.log();
 
 //nested for each to list the ids for each of the laureates
 nobel_prize_winners_2017.prizes.forEach(function (element) {
     element.laureates.forEach(function (element2){
         console.log(`ID: ${element2.id}`)
     })
-});console.log()
+});console.log();
 
 //forEach to find the category names
 nobel_prize_winners_2017.prizes.forEach(function (element) {
     console.log(element.category)
-});console.log()
+});console.log();
 
 
 //created a counter and forEach loop that adds 1 in each iteration
-let count = 0
-nobel_prize_winners_2017.prizes.forEach(function (element) {
+let count = 0;
+nobel_prize_winners_2017.prizes.forEach(function () {
     count += 1
-})
-console.log(`Number of prize categories: ${count}\n`)
+});
+console.log(`Number of prize categories: ${count}\n`);
 
 //initialized counter for total laureates, for each method used and used length on laureates for each category and
 // added to total count
-let laureate_count = 0
+let laureate_count = 0;
 nobel_prize_winners_2017.prizes.forEach(function (element){
     laureate_count += element.laureates.length
-})
-console.log(`Total number of laureates: ${laureate_count}\n`)
+});
+console.log(`Total number of laureates: ${laureate_count}\n`);
 
 
 

@@ -67,7 +67,7 @@
         let nameValue = studentName.value;
         let idValue = studentId.value;
         let gpaValue = studentGpa.value;
-        // initialize string for alart message
+        // initialize string for alert message
         let alarmString = '';
 
             // conditionals to build alarm string
@@ -90,8 +90,11 @@
             let listItem = document.createElement('li');
             // set new text
             listItem.innerHTML = `Name: ${nameValue}, Student ID: ${idValue}, GPA: ${gpaValue}`;
+
             //listener to check class of item clicked
-            listItem.addEventListener('click', function () {
+            //still sorting out the fat arrow; it works, but I don't understand why
+
+            listItem.addEventListener('click', ()=> {
                 // add class / change if class === selected
                 if (this.classList.contains('selected')) {
                     this.setAttribute('class', '')

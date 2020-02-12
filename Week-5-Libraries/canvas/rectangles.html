@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangles</title>
+
+    <style>
+        #canvas {
+            border: 1px black solid;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="canvas" height="200" width="800"></canvas>
+
+<script>
+
+    //find the canvas element in this document
+    let canvas = document.getElementById("canvas");
+    // a context object will be used to draw on the canvas
+    let context = canvas.getContext("2d");
+
+    // The arguments are (Top left corner x, top left corner y, width, height)
+    // Set fill to blue, draw a filled square
+    // Use fillRect, with height and width the same.
+    context.fillStyle = '#0000FF';
+    context.fillRect(20, 20, 100, 100);
+
+    // Set stroke color to red, draw the outline of a square
+    context.strokeStyle = 'red';
+    context.strokeRect(140, 20, 100, 100);
+
+    // Draw a couple of rectangles
+    context.strokeRect(270, 20, 50, 100);
+    context.strokeStyle = 'purple';
+    context.strokeRect(260, 40, 110, 50);
+
+    //Draw a red rectangle with a purple line border
+    // Set the stroke style and fill style, then,
+    // call fillRect and strokeRect with the same coordinates.
+    context.strokeStyle = 'purple';
+    context.fillStyle = 'gold';
+    context.fillRect(380, 20, 100, 100);
+    context.strokeRect(380, 20, 100, 100);
+
+    // reminder ****
+    //Must increase x value when building new shapes
+    //use .lineWidth to increase width
+    context.strokeStyle = 'purple';
+    context.lineWidth = 10;
+    context.strokeRect(500, 20, 100, 100);
+
+    context.strokeStyle = '#33FFFF';
+    context.strokeRect(630, 40, 110, 50);
+    context.strokeStyle = 'purple';
+    context.strokeRect(670, 20, 50, 100);
+
+
+</script>
+
+</body>
+</html>

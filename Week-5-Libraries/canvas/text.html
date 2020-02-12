@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text</title>
+
+    <style>
+        #canvas {
+            border: 1px black solid;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="canvas" height="200" width="900"></canvas>
+
+<script>
+
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+
+    // set fill color to blue, draw some text
+    context.fillStyle = '#0000FF'
+    context.fillText('Blue fill', 10, 10);
+
+    // set stroke to green, draw more text
+    context.strokeStyle = '#00FF00'
+    context.strokeText('Gren Stroke', 40, 40);
+
+    //change default text size AND font
+
+    context.strokeStyle = '#FF00FF'
+    context.font = '30px Arial';
+    context.fillText("Large purple courier stroke", 80, 80);
+
+    context.font = '50px courier';
+    context.fillStyle = '#FFFF00';
+    context.fillText('Large yellow courier fill', 120, 120);
+
+    //Outlined text - fill and stroke
+    context.fillStyle = '#00FFFF'
+    context.strokeStyle = '#FF0000'
+    context.fillText('Outlined text', 170, 170);
+    context.strokeText('Outlined text', 170, 170);
+
+</script>
+
+</body>
+</html>

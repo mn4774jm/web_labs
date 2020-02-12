@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circles</title>
+
+    <style>
+        #canvas {
+            border: 1px black solid;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="canvas" height="400" width="400"></canvas>
+
+<script>
+
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+
+    // Call beginPath to start the circle
+    context.beginPath()
+    // arc defines the circle or part of circle
+    // x, y, radius, start angle, end angle
+    context.arc(100, 200, 50, 0, 2 * Math.PI);
+    context.stroke()
+
+    context.beginPath()
+    context.arc(200, 300, 50, 0, Math.PI); // half a circle
+    context.stroke();
+
+    context.beginPath();
+    context.arc(300, 200, 50, 0, 2* Math.PI); // whole circle
+    context.stroke()
+
+</script>
+
+</body>
+</html>

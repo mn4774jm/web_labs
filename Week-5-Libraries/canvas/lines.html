@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lines</title>
+
+    <style>
+        #canvas {
+            border: 1px black solid;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="canvas" height="400" width="300"></canvas>
+
+<script>
+
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+
+    // Use moveTo to define the start point of a line
+    context.moveTo(10, 10);
+    // Use lineTo to define the end point of the line
+    context.lineTo(300, 300);
+    // Use stroke to actually draw the line
+    context.stroke();
+
+    // Can draw many line segments
+    // start with a moveTo call
+    // call lineTo to define the segments
+    // call stroke to actually draw
+
+    context.moveTo(200, 300);
+    context.lineTo(200, 100);
+    context.lineTo(60, 100);
+    context.lineTo(200, 300);
+    context.stroke()
+
+</script>
+
+</body>
+</html>
