@@ -42,7 +42,9 @@ console.log(`100 Euros is roughly equivalent to ${aud_fixed} Australian dollars\
 
 //call method to check current high rate and log to console
 let high_current = rate_check();
-console.log(`The current highest exchange rate is ${high_current} to 1 Euro\n`);
+
+let high_country_functional = getKeyByValue(rates, high_current)
+console.log(`${high_country_functional} has current highest exchange rate is ${high_current} to 1 Euro\n`);
 
 //created method for checking highest conversion rate
 //initialize highest_recorded rate variable, loop through rates and store new value if higher than last iteration
@@ -55,7 +57,12 @@ function rate_check() {
     }
     return highest_recorded_rate
 }
-
+// experimenting with functional programming; The below code was found at
+// https://stackoverflow.com/questions/9907419/how-to-get-a-key-in-a-javascript-object-by-its-value
+// by user UncleLaz
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value)
+}
 /* c. Use this JavaScript array of objects of cat owners, and their cats. Source, moderncat.com
  */
 
@@ -224,9 +231,10 @@ nobel_prize_winners_2017.prizes.forEach(function (element) {
 
 //nested for each to list the ids for each of the laureates
 nobel_prize_winners_2017.prizes.forEach(function (element) {
-    element.laureates.forEach(function (element2){
-        console.log(`ID: ${element2.id}`)
-    })
+    if (element.category === 'physics'){
+        for (let p in element.laureates)
+            console.log(element.laureates[p].id)
+    }
 });console.log();
 
 //forEach to find the category names
