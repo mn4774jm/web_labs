@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Drawing Program</title>
+
+    <style>
+
+        #canvas {
+            border: 1px black solid;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<P>Drag the mouse on the canvas</P>
+<canvas id="canvas" height="400" width="400"></canvas>
+<br />
+
+<label for="color_text">Type a color</label>
+<input id="color_text" type="text" maxlength="20">
+<button id="choose_color">Submit</button>
+<button id="clear_color">Clear</button>
+<script>
+
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+
+    let mousedown = false;
+    let color = document.querySelector('#color_text');
+    let clear_button = document.querySelector('#clear_color');
+
+    canvas.addEventListener("mousedown", function() {
+        mousedown = true
+    });
+
+    canvas.addEventListener("mouseup", function() {
+        mousedown = false
+    });
+
+    canvas.addEventListener("mousemove", function() {
+
+        if (!mousedown) { return; }
+        let color_value = color.value;
+        // event is a built-in letiable, contains the event that triggered this function
+        // get the x, y location of the event
+        let x = event.offsetX;
+        let y = event.offsetY;   //offsetX, offsetY, may not work in older browsers
+
+        //Draw a filled rectangle centered under the mouse click
+        //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
+        context.beginPath();
+        context.arc(x-5, y-5, 5, 0, 2 * Math.PI);
+        context.fillStyle = color_value;
+        context.fill();
+        context.closePath();
+
+    });
+    clear_button.addEventListener("click", function() {
+        context.clearRect(0, 0, canvas.width, canvas.height)
+    })
+</script>
+
+<br><br><br>
+<hr />
+<div>
+    <ul>
+        <li><a href="https://github.com/mn4774jm/web_labs/blob/master/Week-4-JS-Fundamentals/tree-order-form.html">Source Code</a></li>
+    </ul>
+</div>
+<br><br><br>
+
+</body>
+</html>

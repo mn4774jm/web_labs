@@ -36,7 +36,7 @@
     let clear_button = document.querySelector('#clear_color');
 
 
-    submit_button.addEventListener("click", function drawCircle(){
+    submit_button.addEventListener("click", function(){
         let color_value = color.value;
         // event is a built-in variable, contains the event that triggered this function
         // get the x, y location of the event
@@ -47,7 +47,7 @@
         //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
 
 
-        canvas.addEventListener("click", function drawSquare(){
+        canvas.addEventListener("click", function(){
 
             // event is a built-in variable, contains the event that triggered this function
             // get the x, y location of the event
