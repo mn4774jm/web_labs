@@ -20,9 +20,9 @@
 <canvas id="canvas" height="400" width="400"></canvas>
 <br />
 
-<label for="color_text">Type a color</label>
-<input id="color_text" type="text" maxlength="20">
-<button id="choose_color">Submit</button>
+<label for="color_text">Choose a color</label>
+<input id="color_text" type="color" maxlength="20">
+<input id="size_range" type="range" max="30" min="1">
 <button id="clear_color">Clear</button>
 <script>
 
@@ -31,6 +31,7 @@
 
     let mousedown = false;
     let color = document.querySelector('#color_text');
+    let range_slider = document.querySelector('#size_range')
     let clear_button = document.querySelector('#clear_color');
 
     canvas.addEventListener("mousedown", function() {
@@ -45,6 +46,7 @@
 
         if (!mousedown) { return; }
         let color_value = color.value;
+        let size = range_slider.value;
         // event is a built-in letiable, contains the event that triggered this function
         // get the x, y location of the event
         let x = event.offsetX;
@@ -53,7 +55,7 @@
         //Draw a filled rectangle centered under the mouse click
         //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
         context.beginPath();
-        context.arc(x-5, y-5, 5, 0, 2 * Math.PI);
+        context.arc(x-5, y-5, size, 0, 2 * Math.PI);
         context.fillStyle = color_value;
         context.fill();
         context.closePath();

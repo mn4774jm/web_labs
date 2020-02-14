@@ -40,23 +40,21 @@ let euro_to_aud = Australian_exchange * 100;
 let aud_fixed = euro_to_aud.toFixed(2);
 console.log(`100 Euros is roughly equivalent to ${aud_fixed} Australian dollars\n`);
 
-//call method to check current high rate and log to console
-let high_current = rate_check();
+// initialize values
+// loop through objects, if rate higher than previous checked update variables
+let high_current = 0;
+let high_country = '';
+for (let r in rates) {
+    if (high_current < rates[r]) {
+        high_current = rates[r];
+        high_country = r
+    }
+}
 
 let high_country_functional = getKeyByValue(rates, high_current)
-console.log(`${high_country_functional} has current highest exchange rate is ${high_current} to 1 Euro\n`);
+console.log(`${high_country} has current highest exchange rate is ${high_current} to 1 Euro\n`);
 
-//created method for checking highest conversion rate
-//initialize highest_recorded rate variable, loop through rates and store new value if higher than last iteration
-function rate_check() {
-    let highest_recorded_rate = 0;
-    for (let r in rates) {
-        if (highest_recorded_rate < rates[r]) {
-            highest_recorded_rate = rates[r]
-        }
-    }
-    return highest_recorded_rate
-}
+
 // experimenting with functional programming; The below code was found at
 // https://stackoverflow.com/questions/9907419/how-to-get-a-key-in-a-javascript-object-by-its-value
 // by user UncleLaz

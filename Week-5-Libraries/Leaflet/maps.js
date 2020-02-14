@@ -49,6 +49,5 @@ let metroAreaCircle = L.circle(metroAreaCenterCoordinates, {
     radius: 30000,
     fillOpacity: 0.2
 })
-.bindPopup("Twin Cities Metro Area")
-.addTo(map);
-
+    .bindPopup("Twin Cities Metro Area")
+    .addTo(map);
