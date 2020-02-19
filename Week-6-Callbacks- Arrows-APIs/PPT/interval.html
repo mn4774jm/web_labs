@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Interval</title>
+</head>
+<body>
+
+    <h1>What time is it?</h1>
+    <p id="time"></p>
+
+    <script>
+
+        let timeElement = document.querySelector('#time')
+
+        setInterval(() => {
+            let date = Date();
+            timeElement.innerHTML = date
+        }, 1000) // time between function calls; updates every 1 second
+    </script>
+
+</body>
+</html>
