@@ -12,7 +12,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiY2xhd2ZvcmQiLCJhIjoiY2s2a3dpbHpzMDh5YTNsbnFtdmdncHN4byJ9.ryriGwWfag6cNvJPS05qLg'
 }).addTo(map);
 
-
+//create list of bridge objects
 bridge_obj = [
     {'bridge_name': 'Varrazano-Narrows Bridge', 'city_state:': 'New York, NY', 'Span': '1298.4', 'coordinates': [40.6066, -74.0447] },
     {'bridge_name': 'Golden Gate Bridge', 'city_state:': 'San Francisco and Marin, CA', 'Span': '1280.2', 'coordinates': [37.8199, -122.4783] },
@@ -21,17 +21,23 @@ bridge_obj = [
     {'bridge_name': 'Tacoma Narrows Bridge', 'city_state:': 'Tacoma and Kitsap, WA', 'Span': '853.44', 'coordinates': [47.2690, -122.5517] },
 ];
 
+let bridgeIcon = L.icon({
+    iconUrl: 'bridge.png',
+    iconSize: [28,50],
+    popupAnchor: [0,0]
+});
+//loop through list to create map markers and provide pop-up information
 for (let x = 0; x < bridge_obj.length;x++){
-    let campus_marker = L.marker(bridge_obj[x].coordinates).bindPopup(`${bridge_obj[x].bridge_name}<br>${bridge_obj[x]["city_state:"]}<br>${bridge_obj[x].Span}`).addTo(map)
+    let campus_marker = L.marker(bridge_obj[x].coordinates, {icon: bridgeIcon}).bindPopup(`${bridge_obj[x].bridge_name}<br>${bridge_obj[x]["city_state:"]}<br>${bridge_obj[x].Span}`).addTo(map)
 
 };
 
-
-
+//find canvas in html
 let canvas = document.getElementById('bridge_chart');
 console.log(canvas);
-let ctx = canvas.getContext('2d')
+let ctx = canvas.getContext('2d');
 
+//create new chart
 chart = new Chart(ctx, {
 
     type: 'bar',
@@ -54,10 +60,13 @@ chart = new Chart(ctx, {
     }
 });
 
+// loop through bridge objects and push elements to chart lists
 for (let x = 0; x < bridge_obj.length;x++){
-    chart.data.labels.push(bridge_obj[x].bridge_name)
+    chart.data.labels.push(bridge_obj[x].bridge_name);
     chart.data.datasets[0].data.push(bridge_obj[x].Span)
 }
+
+
 
 
 

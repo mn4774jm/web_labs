@@ -20,20 +20,22 @@
 <canvas id="canvas" height="400" width="400"></canvas>
 <br />
 
+//create labels, inputs and clear button
 <label for="color_text">Choose a color</label>
 <input id="color_text" type="color" maxlength="20">
 <input id="size_range" type="range" max="30" min="1">
 <button id="clear_color">Clear</button>
 <script>
 
+    //find elements
     let canvas = document.getElementById("canvas");
     let context = canvas.getContext("2d");
-
     let mousedown = false;
     let color = document.querySelector('#color_text');
     let range_slider = document.querySelector('#size_range')
     let clear_button = document.querySelector('#clear_color');
 
+    //create mouse listeners for canvas
     canvas.addEventListener("mousedown", function() {
         mousedown = true
     });
@@ -45,6 +47,7 @@
     canvas.addEventListener("mousemove", function() {
 
         if (!mousedown) { return; }
+        //save values to variables for assignment
         let color_value = color.value;
         let size = range_slider.value;
         // event is a built-in letiable, contains the event that triggered this function
@@ -54,6 +57,7 @@
 
         //Draw a filled rectangle centered under the mouse click
         //x, y is the top left corner, so shift up and left by 5 to center it under the mouse.
+        //values applied to arc and fillstyle based on user input
         context.beginPath();
         context.arc(x-5, y-5, size, 0, 2 * Math.PI);
         context.fillStyle = color_value;
@@ -61,6 +65,7 @@
         context.closePath();
 
     });
+    //clear canvas on click
     clear_button.addEventListener("click", function() {
         context.clearRect(0, 0, canvas.width, canvas.height)
     })
@@ -70,7 +75,7 @@
 <hr />
 <div>
     <ul>
-        <li><a href="https://github.com/mn4774jm/web_labs/blob/master/Week-5-Libraries/basic_drawing_program.html">Source Code</a></li>
+        <li><a href="https://github.com/mn4774jm/web_labs/blob/master/Week-5-Libraries/bridges.html">Source Code</a></li>
     </ul>
 </div>
 <br><br><br>
