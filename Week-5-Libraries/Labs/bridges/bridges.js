@@ -3,7 +3,6 @@ let zoomLevel = 4; // 1 = whole world, 10 = large city, 20 = city blocks
 
 //create map
 let map = L.map('bridges_map').setView(centralUsCoordinates, zoomLevel);
-
 // add the tile layer - roads, streets etc. Without this, nothing to see
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',

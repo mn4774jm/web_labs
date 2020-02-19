@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Fetch - Where's the ISS?</title>
+<!--    leaflet script and css-->
+    <Link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+<!--Our stylesheet. Make sure the size of the map div is set before trying to draw map-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--    async = load the script in parallel with the html-->
+<!--    defer = wait until the HTML has finished loading before running the script-->
+    <script asyn defer src="fetch.js"></script>
+</head>
+
+
+<body>
+    <h1>Where is the International Space Station?</h1>
+    <p>This page will update every 10 seconds</p>
+    <p id="time"></p>
+
+    <div>
+        <p>ISS Latitude: <span id="iss-lat"></span></p>
+        <p>ISS Longitude: <span id="iss-long"></span></p>
+    </div>
+    <div id="iss-map"></div> <!-- Map div -->
+
+    Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from
+    <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
+    <hr />
+    <div>
+        <ul>
+            <li><a href="https://github.com/mn4774jm/web_labs/tree/master/Week-6-Callbacks-Arrows-APIs/labs/ISS_location">Source Code</a></li>
+        </ul>
+    </div>
+</body>
+</html>
