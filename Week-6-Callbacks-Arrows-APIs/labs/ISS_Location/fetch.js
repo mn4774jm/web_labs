@@ -17,16 +17,25 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: 'pk.eyJ1IjoiY2xhd2ZvcmQiLCJhIjoiY2s2a3dpbHpzMDh5YTNsbnFtdmdncHN4byJ9.ryriGwWfag6cNvJPS05qLg'
 }).addTo(map);
 
-iss() // initial call to function
-setInterval(iss, update) // call the iss function every 10 seconds
+let max_failed_attempts = 3
+iss(max_failed_attempts) // initial call to function. Once the fetch has been made, the iss function
+// will call itself again, after a delay of update milliseconds. If the max number of failed attempts is not exceeded
+
+
+// setInterval(iss, update) // call the iss function every 10 seconds; also an option if you aren't concerned about lag
+
 
 let issIcon = L.icon({
     iconUrl: 'international-space-station-icon.png',
-    iconSize: [28,50],
-    popupAnchor: [0,0]
+    iconSize: [50,50],
+    iconAnchor: [25,25]
 });
 
-function iss() {
+function iss(attempts) {
+    if ( attempts <= 0 ) {
+        console.log('Too many errors, abandoning requests to get ISS position')
+        return  // Since setTimeOut is not called again, no more attempts to fetch will be made
+    }
     fetch(url)
         // simplified with arrows; only one parameter and one statement; if statement is a return 'return can be omitted
         // function is omitted as are ()
@@ -40,13 +49,19 @@ function iss() {
 
             if (!issMarker) {
                 issMarker = L.marker([lat, long], {icon: issIcon}).addTo(map) // create the marker
-                let date = Date.value;
                 timeElement.innerHTML = `At ${Date()} the ISS is over the following coordinates`
             } else {
                 issMarker.setLatLng([lat, long]) // Already exists - move to new location
+                timeElement.innerHTML = `At ${Date()} the ISS is over the following coordinates`
+
             }
         })
         .catch(err => {
             console.log(err)
         })
+        .finally( () =>
+            // finally runs whether the fetch() worked or failed.
+            // call the iss function after a delay of update milliseconds
+            setTimeout(iss, update, attempts)
+        )
 }
