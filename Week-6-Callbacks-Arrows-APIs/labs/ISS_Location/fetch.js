@@ -57,6 +57,7 @@ function iss(attempts) {
             }
         })
         .catch(err => {
+            attempts --
             console.log(err)
         })
         .finally( () =>
