@@ -16,5 +16,5 @@ fetch(url)
         // If an error occurs, a promise is rejected
         // In this case, the catch runs
         // Deal with errors here
-    console.log('error!', error);
+    console.log('error!', error)
 })

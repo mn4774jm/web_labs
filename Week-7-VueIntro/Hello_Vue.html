@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <h1>Hello Vue</h1>
+        <p>
+            {{ message | uppercase }}
+        </p>
+
+        <button v-on:click="addExclamation">Add !</button>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                count :1,
+                message: 'hi',
+            },
+            methods: {
+                addExclamation: function() {
+                    if (this.count < 11) {
+                        this.message = this.message + '!'
+                        this.count ++
+                        console.log(counter)
+                    }
+                }
+            },
+            filters: {
+                uppercase: function(string) {
+                    return string.toUpperCase()
+                }
+            }
+        })
+    </script>
+</body>
+</html>

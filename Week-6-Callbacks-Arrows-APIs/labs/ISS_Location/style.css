@@ -1,4 +1,5 @@
 #iss-map {
     height: 400px;
-    width: 500px;
+    width: 600px;
+    border: 5px solid black
 }

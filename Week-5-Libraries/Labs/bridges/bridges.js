@@ -49,6 +49,10 @@ chart = new Chart(ctx, {
             backgroundColor: ['red', 'blue', 'yellow', 'green']
         }]
     }, options: {
+        // legend allows for disabling the legend toggle
+        legend: {
+            onClick: (e) => e.stopPropagation()
+        },
         scales: {
             yAxes: [{
                 ticks: {

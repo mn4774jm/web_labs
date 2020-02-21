@@ -39,13 +39,14 @@ function iss(attempts) {
     fetch(url)
         // simplified with arrows; only one parameter and one statement; if statement is a return 'return can be omitted
         // function is omitted as are ()
+        // promise means that either data will be returned or error
         .then(res => res.json())
         .then(issData => {
-            console.log(issData)
-            let lat = issData.latitude
-            let long = issData.longitude
-            issLat.innerHTML = lat
-            issLong.innerHTML = long
+            console.log(issData);
+            let lat = issData.latitude;
+            let long = issData.longitude;
+            issLat.innerHTML = lat;
+            issLong.innerHTML = long;
 
             if (!issMarker) {
                 issMarker = L.marker([lat, long], {icon: issIcon}).addTo(map) // create the marker
@@ -53,7 +54,6 @@ function iss(attempts) {
             } else {
                 issMarker.setLatLng([lat, long]) // Already exists - move to new location
                 timeElement.innerHTML = `At ${Date()} the ISS is over the following coordinates`
-
             }
         })
         .catch(err => {
