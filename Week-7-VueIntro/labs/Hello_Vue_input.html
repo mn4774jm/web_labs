@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+</head>
+<body>
+
+    <div id="app">
+        <h1>Hello Vue</h1>
+        <label for="name">Please enter your name: </label>
+
+<!--        instructs Vue to bind the contents of the input to the data property name-->
+<!--        and adds an input event listener to update the name-->
+<!--        2 way binding; if app was to update name, the value in the input would change.-->
+        <input v-model="name" id="name">
+<!--        v-if works as a conditional an only propagates if 'name' has content-->
+<!--        when using strings empty === false-->
+        <p v-if="name">
+            Your name is {{ name }}
+        </p>
+    </div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            // when text is entered, it is displayed in the p element
+            name: ""
+        },
+
+    })
+</script>
+</body>
+</html>
