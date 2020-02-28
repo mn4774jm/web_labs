@@ -4,8 +4,7 @@
 let canvas = document.getElementById('game-layer');
 let context = canvas.getContext('2d');
 
-
-// the wrong way
+// game entities
 // set-up player
 function Player(x,y){
     this.x = x;
