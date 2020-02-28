@@ -10,27 +10,33 @@
 <body>
     <div id="app">
         <h1>Hello Vue</h1>
-        <p>
-            {{ message | uppercase }}
-        </p>
+<!--        items inside mustache will be interpreted as js-->
+        <p> {{ message | uppercase }}</p>
+        <p> {{ another_message }}</p>
 
         <button v-on:click="addExclamation">Add !</button>
+        <button v-on:click="clearExclamation">Clear</button>
     </div>
 
     <script>
         let app = new Vue({
+            // selects instance
             el: '#app',
             data: {
                 count :1,
                 message: 'hi',
+                another_message: new Date(),
             },
             methods: {
                 addExclamation: function() {
                     if (this.count < 11) {
-                        this.message = this.message + '!'
-                        this.count ++
+                        this.message = this.message + '!';
+                        this.count ++;
                         console.log(counter)
                     }
+                },
+                clearExclamation: function() {
+                    this.message = 'hi'
                 }
             },
             filters: {

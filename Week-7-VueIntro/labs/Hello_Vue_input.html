@@ -22,16 +22,22 @@
         <p v-if="name">
             Your name is {{ name }}
         </p>
+        <button v-on:click="clear">clear</button>
+
     </div>
 
-<script>
+    <script>
     let app = new Vue({
         el: '#app',
         data: {
             // when text is entered, it is displayed in the p element
             name: ""
         },
-
+        methods: {
+            clear: function() {
+                this.name = ""
+            }
+        }
     })
 </script>
 </body>

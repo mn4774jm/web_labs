@@ -22,7 +22,8 @@
         <tr>
             <td>{{ name }}</td>
             <td>{{ unitPrice  }}</td>
-            <td><input type="number" id="quantity" v-model="quantity"></td>
+<!--            added min so that user can't have negative items in cart-->
+            <td><input type="number" id="quantity" v-model="quantity" min="0"></td>
 <!--            decimalPlaces(2) means two decimal places-->
             <td id="total"> ${{ total | decimalPlaces(2) }}</td>
         </tr>
