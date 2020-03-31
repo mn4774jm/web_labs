@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    set title element-->
+    <title>Would You Rather</title>
+    <script src="https://unpkg.com/vue@2.6.7/dist/vue.js"></script>
+</head>
+
+<body>
+
+</body>
+    <div id="app">
+
+            <h1>Would you rather...</h1>
+
+<!--        component name generated from WouldYouRather component, but lowercase with hyphens-->
+<!--        parent-->
+        <would-you-rather-question
+            v-bind:question="question"
+            v-bind:answer1="answer1"
+            v-bind:answer2="answer2"
+        v-on:answer-changed="answerChanged">
+        </would-you-rather-question>
+
+        <div>
+<!--            parent can use child data-->
+            {{  userSelectionMessage  }}
+        </div>
+    </div>
+
+<script>
+
+    const WouldYouRatherQuestionComponent = {
+        // template is a string created with backticks
+        //template sends items to the would you rather question component
+        //child emits event to parent when either radio button is changed
+        // $emit, child includes choice data when emitting
+        template: `
+        <div>
+            <h2>{{ question }}</h2>
+            <input type="radio" v-model="choice" v-bind:value="answer1" v-on:change="$emit('answer-changed', choice)">
+            <label>{{ answer1 }}</label>
+            <input type="radio" v-model="choice" v-bind:value="answer2" v-on:change="$emit('answer-changed', choice)">
+            <label>{{ answer2 }}</label>
+        </div>
+        `,
+        data()  {       //data - for internal data that belongs to this component
+            return  {
+                choice: ''      //for users selection from the radio button
+            }
+        },
+        props:  {       //props - for data passed in from parent component
+            //props use data types, but not values
+            question: String,
+            answer1: String,
+            answer2: String
+        },
+    }
+
+    let app = new Vue({
+        el: "#app",
+        // data is changed to a function
+        data()  {
+            return  {
+                question: '...be a master at drawing or be an amazing singer?',
+                answer1: "Drawing",
+                answer2: "Singing",
+                userSelectionMessage: ''
+            }
+        },
+        methods:  {
+            answerChanged(answer)  {
+                this.userSelectionMessage = `Thanks! You selected ${answer}`
+            }
+        },
+        components:  {
+            'would-you-rather-question': WouldYouRatherQuestionComponent
+        }
+    })
+
+</script>
+
+</html>
