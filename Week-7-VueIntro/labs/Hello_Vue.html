@@ -8,20 +8,24 @@
 </head>
 
 <body>
+<!--everything inside the div is the template-->
     <div id="app">
         <h1>Hello Vue</h1>
 <!--        items inside mustache will be interpreted as js-->
         <p> {{ message | uppercase }}</p>
         <p> {{ another_message }}</p>
 
+<!--        v-on:click binds the event to the method that follows-->
         <button v-on:click="addExclamation">Add !</button>
         <button v-on:click="clearExclamation">Clear</button>
     </div>
 
     <script>
+        // Vue instance will manage the content inside the div
         let app = new Vue({
-            // selects instance
+            // selects instance; #app refers to the id="app"
             el: '#app',
+            // items inside data are bound to the view
             data: {
                 count :1,
                 message: 'hi',

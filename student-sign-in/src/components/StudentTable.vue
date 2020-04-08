@@ -1,14 +1,64 @@
 <template>
     <div>
-        <!--        Write template here-->
+        <div class="card student-list m-2 p-2">
+            <h4 class="card-title">Students</h4>
+            <div id="student-table">
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>StarID</th>
+                        <th>Present?</th>
+                    </tr>
+                    <StudentRow
+                        v-for="student in students" v-bind:key="student.name"
+                        v-bind:student="student"
+                        v-on:student-present="studentArrivedOrLeft">
+                    </StudentRow>
+<!--                    Each row will have a checkbox, bound to the app data-->
+<!--                    When the checkbox is checked/unchecked, the student will be signed in/out-->
+<!--                    Add styles so present and absent student rows have different styles-->
+
+                    <!--                    v-for works like a for loop-->
+                    <tr v-for="student in students" v-bind:key="student.name" v-bind:class="'present-'+student.present">
+                        <td>{{student.name}}</td>
+                        <td>{{student.starID}}</td>
+                        <td> <input type="checkbox" v-model="student.present" v-on:change="studentArrivedOrLeft(student)"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-    //create and export component here
+
+import StudentRow from "@/components/StudentRow.vue";
+
+    export default  {
+        name: 'StudentTable',
+        component: {StudentRow},
+        props:  {
+            students: Array
+        },
+        methods:  {
+            studentArrivedOrLeft(student)  {
+                this.$emit('student-present', student)
+            }
+        }
+    }
 
 </script>
 
 <style>
-    /*write any styles here*/
+
+    .present-true  {
+        color: gray;
+        font-style: italic;
+    }
+
+    .present-false  {
+        color: black;
+        font-weight: bold;
+    }
+
 </style>
