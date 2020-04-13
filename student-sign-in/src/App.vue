@@ -2,7 +2,11 @@
   <div id="app">
 
     <NewStudentForm v-on:student-added="newStudentAdded"></NewStudentForm>
-    <StudentTable v-bind:students="students" v-on:student-present="studentArrivedOrLeft"></StudentTable>
+    <StudentTable
+            v-bind:students="students"
+            v-on:student-present="studentArrivedOrLeft"
+            v-on:delete-student="studentDeleted">
+    </StudentTable>
     <StudentMessage v-bind:message="message" v-bind:name="name"></StudentMessage>
   </div>
 </template>
@@ -36,6 +40,9 @@ export default {
     studentArrivedOrLeft(student) {
       this.message = student.present ? 'Welcome, ' : 'Goodbye, '
       this.name = student.name
+    },
+    studentDeleted(student) {
+      this.students = this.students.filter( function(s) { return s != student })
     }
   }
 }
