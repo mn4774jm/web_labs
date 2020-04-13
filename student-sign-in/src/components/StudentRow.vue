@@ -4,7 +4,7 @@
         <td>{{ student.starID }}</td>
         <td><input type="checkbox" v-model="student.present" v-on:change="checked(student)"></td>
         <td v-show="edit">
-            <img class="delete-icon" v-on:click="deleteStudent(student)" src="src/assets/delete.png">
+            <img class="delete-icon" v-on:click="deleteStudent(student)" src="@/assets/delete.png">
         </td>
     </tr>
 </template>

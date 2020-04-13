@@ -28,11 +28,11 @@
 <!--                    Add styles so present and absent student rows have different styles-->
 
                     <!--                    v-for works like a for loop-->
-                    <tr v-for="student in students" v-bind:key="student.name" v-bind:class="'present-'+student.present">
-                        <td>{{student.name}}</td>
-                        <td>{{student.starID}}</td>
-                        <td> <input type="checkbox" v-model="student.present" v-on:change="studentArrivedOrLeft(student)"></td>
-                    </tr>
+<!--                    <tr v-for="student in students" v-bind:key="student.name" v-bind:class="'present-'+student.present">-->
+<!--                        <td>{{student.name}}</td>-->
+<!--                        <td>{{student.starID}}</td>-->
+<!--                        <td> <input type="checkbox" v-model="student.present" v-on:change="studentArrivedOrLeft(student)"></td>-->
+<!--                    </tr>-->
                 </table>
             </div>
         </div>
@@ -45,7 +45,7 @@ import StudentRow from "@/components/StudentRow.vue";
 
     export default  {
         name: 'StudentTable',
-        component: {StudentRow},
+        components: {StudentRow},
         data() {
             return {
                 editTable: false
