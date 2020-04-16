@@ -1,7 +1,7 @@
 <template>
-    <div class="question">
+    <div id="question">
 <!--        write template here-->
-        <h3>Would you Rather...</h3>
+        <h1>Would you Rather...</h1>
 
         <h2>{{ question.question }}</h2>
         <input type="radio" v-model="choice" v-bind:value="question.answer1" v-on:change="answerChanged(question.id, choice)">
@@ -34,5 +34,7 @@
 </script>
 
 <style>
-
+    #question{
+        background-color: cyan;
+    }
 </style>

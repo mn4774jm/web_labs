@@ -6,13 +6,14 @@
     <WouldYouRather v-for="question in questions" v-bind:key="question.id"
       v-bind:id="id"
       v-bind:question="question"
-      v-bind:answer1="answer1"
-      v-bind:answer2="answer2"
       v-on:answer-changed="answerChanged"
     ></WouldYouRather>
 <!--    header and list for user answers-->
     <h1>Would you Rather...</h1>
 <ul id="answerList"></ul>
+    <li v-for="answer in answers">
+      {{ answers }}
+    </li>
   </div>
 
 </template>
@@ -48,7 +49,7 @@ export default {
       ]
     }
   },
-  // props to pass information child
+  // props to pass information to child
   props: {
     id: String,
     question: String,
@@ -83,11 +84,11 @@ export default {
 
 <style>
 #app {
-  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
-  /*-webkit-font-smoothing: antialiased;*/
-  /*-moz-osx-font-smoothing: grayscale;*/
-  /*text-align: center;*/
-  /*color: #2c3e50;*/
-  /*margin-top: 60px;*/
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
