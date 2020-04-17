@@ -11,8 +11,11 @@
 <!--    header and list for user answers-->
     <h1>Would you Rather...</h1>
 <ul id="answerList"></ul>
-    <li v-for="answer in answers">
-      {{ answers }}
+<!--      loop through each user answer to display in list.-->
+<!--      v-show is used with conditional logic to make sure that only user selections are shown -->
+    <li v-for="answer in answers"
+        v-show="answer && answer.length >0">
+      {{ answer }}
     </li>
   </div>
 
@@ -61,22 +64,11 @@ export default {
     WouldYouRather
   },
   methods: {
-    // pass user id, and user choice as answer
-    // get list item using id as key
+      // call for the answer changed method in wouldyourather.vue. passing id and the users choice
     answerChanged(id, answer) {
-      this.answers[id] = answer
-      this.buildList()
-    },
-    buildList() {
-      // find element
-      let list = document.getElementById('answerList');
-      list.innerHTML = '';
-      // loop through answers and update list after each change
-      this.answers.forEach(function(answer) {
-        let listItem = document.createElement('li');
-        listItem.innerHTML = answer;
-        list.appendChild(listItem)
-      })
+        // when entering JS into data in vue getters and setters are automatically generated meaning that they are
+        // not automatically reactive. reactive properties are added by using $set
+        this.$set(this.answers, id, answer)
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div id="question">
+    <div class="question">
 <!--        write template here-->
         <h1>Would you Rather...</h1>
 
@@ -34,7 +34,7 @@
 </script>
 
 <style>
-    #question{
+    .question{
         background-color: cyan;
     }
 </style>
