@@ -2,7 +2,7 @@
     <div class="question">
 <!--        write template here-->
         <h1>Would you Rather...</h1>
-
+<!--        create buttons for each questions answer options. When button it clicked answerCHanged is called passing the question id and choice selected-->
         <h2>{{ question.question }}</h2>
         <input type="radio" v-model="choice" v-bind:value="question.answer1" v-on:change="answerChanged(question.id, choice)">
         <label>{{ question.answer1 }}</label>
