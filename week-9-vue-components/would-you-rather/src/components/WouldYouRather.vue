@@ -18,13 +18,16 @@
 
     data() {
       return {
+          // default answer for question
           choice: ''
       }
     },
+        // comes from the parent (App.vue). If changed in parent, will be reflected here
         props: {
         question: Object,
         },
     methods: {
+            // emits the evnt to the parent, to trigger the v-on in the App.vue template
         answerChanged(id, choice) {
         this.$emit('answer-changed', id, choice)
         }
